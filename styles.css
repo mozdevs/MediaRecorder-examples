@@ -1,3 +1,23 @@
 body {
   font-family: Courier, 'Courier New', monospace;
+  padding: 1em 2em;
+}
+
+a, a:hover, a:visited {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    padding-bottom: 0.1em;
+}
+
+a {
+    box-shadow: inset 0 -3px #31ffd5;
+}
+
+a:hover {
+    background:#31ffd5;
+}
+
+p, li {
+  line-height: 1.25em;
 }
