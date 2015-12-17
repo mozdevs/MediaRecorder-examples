@@ -1,0 +1,26 @@
+{
+  "name": "mediarecorder",
+  "version": "1.0.0",
+  "description": "Examples of MediaRecorder API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozdevs/mediarecorder.git"
+  },
+  "keywords": [
+    "mediarecorder",
+    "mdn"
+  ],
+  "author": "",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mozdevs/mediarecorder/issues"
+  },
+  "homepage": "https://github.com/mozdevs/mediarecorder#readme",
+  "devDependencies": {
+    "gh-pages": "^0.8.0"
+  }
+}
