@@ -10,17 +10,21 @@
 // CanvasRenderingContext2D.putImageData -> to write the canvas pixels
 
 window.onload = function () {
+  // get video stream from user's webcam
   navigator.mediaDevices.getUserMedia({
     video: true
   })
   .then(function (stream) {
-    // we need to create a video element and pipe the stream into it so we
-    // can know when we have data in the stream, and its width/height
+    // We need to create a video element and pipe the stream into it so we
+    // can know when we have data in the stream, and its width/height.
+    // Note that this video doesn't need to be attached to the DOM for this
+    // to work.
     var video = document.createElement('video');
     video.src = URL.createObjectURL(stream);
     video.addEventListener('loadedmetadata', function () {
       initCanvas(video);
     });
+    // we need to play the video to trigger the loadedmetadata event
     video.play();
   });
 };
@@ -41,9 +45,11 @@ function initCanvas(video) {
   // use requestAnimationFrame to render the video as often as possible
   var ctx = canvas.getContext('2d', { preserveDrawingBuffer: true });
   var draw = function () {
+    // create a renderAnimationFrame loop
     requestAnimationFrame(draw);
-
+    // draw the video data into the canvas
     ctx.drawImage(video, 0, 0, width, height);
+    // apply a custom filter to the image
     applyFilter(ctx, width, height);
   };
 
@@ -53,7 +59,7 @@ function initCanvas(video) {
 function applyFilter(ctx, width, height) {
   // read pixels
   var imageData = ctx.getImageData(0, 0, width, height);
-  var data = imageData.data;
+  var data = imageData.data; // data is an array of pixels in RGBA
 
   // modify pixels
   for (var i = 0; i < data.length; i+=4) {
