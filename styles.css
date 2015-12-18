@@ -3,6 +3,14 @@ body {
   padding: 1em 2em;
 }
 
+code, pre {
+  font-family: Courier, 'Courier New', monospace;
+}
+
+code {
+  color: #666;
+}
+
 a, a:hover, a:visited {
     color: #000;
     text-decoration: none;
@@ -20,4 +28,14 @@ a:hover {
 
 p, li {
   line-height: 1.25em;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.row > * {
+  text-align: center;
 }
