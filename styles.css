@@ -1,10 +1,12 @@
 body {
   font-family: Courier, 'Courier New', monospace;
   padding: 1em 2em;
+  font-size: 1rem;
 }
 
-code, pre {
+code, pre, button {
   font-family: Courier, 'Courier New', monospace;
+  font-size: 1rem;
 }
 
 code {
