@@ -26,6 +26,11 @@ button:active, button:hover {
     color: #fff;
 }
 
+button[disabled] {
+    background: #ccc;
+    color: #000;
+}
+
 a, a:hover, a:visited {
     color: #000;
     text-decoration: none;
