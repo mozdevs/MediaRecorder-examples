@@ -13,6 +13,19 @@ code {
   color: #666;
 }
 
+button {
+    border: 0;
+    background: #31ffd5;
+    font-family: Courier, 'Courier New', monospace;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+}
+
+button:active, button:hover {
+    background: #000;
+    color: #fff;
+}
+
 a, a:hover, a:visited {
     color: #000;
     text-decoration: none;
@@ -29,7 +42,12 @@ a:hover {
 }
 
 p, li {
-  line-height: 1.25em;
+  line-height: 1.3em;
+  margin: 1em 0;
+}
+
+li {
+    margin: 0.8em 0;
 }
 
 .row {
