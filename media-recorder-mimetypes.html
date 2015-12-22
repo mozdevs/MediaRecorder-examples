@@ -16,11 +16,11 @@
   <main>
     <form name="record-config">
       <p><strong>What do you wish to record?</strong></p>
-      <p>
-          <label><input name="mediatype" type="radio" value="audio" checked> Audio only</label>
-          <label><input name="mediatype" type="radio" value="video"> Video only</label>
-          <label><input name="mediatype" type="radio" value="both"> Audio + video</label>
-      </p>
+      <ul class="choices">
+          <li><label><input name="mediatype" type="radio" value="audio" checked> Audio only</label></li>
+          <li><label><input name="mediatype" type="radio" value="video"> Video only</label></li>
+          <li><label><input name="mediatype" type="radio" value="both"> Audio + video</label></li>
+      </ul>
     </form>
     <p>
       <button type="button" id="record">Record </button>
@@ -28,6 +28,6 @@
       <span id="recording" style="display:none">Recording…</span>
     </p>
     <p><audio id="audio"></audio></p>
-    <p><video id="video" controls></video></p>
+    <p><video id="video"></video></p>
   </main>
 </body>

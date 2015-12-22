@@ -55,6 +55,11 @@ li {
     margin: 0.8em 0;
 }
 
+canvas, video {
+    max-width: 100%;
+    max-height: 60vh;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -63,4 +68,17 @@ li {
 
 .row > * {
   text-align: center;
+}
+
+.choices {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+@media (min-width: 640px) {
+    .choices li {
+        display: inline-block;
+        margin: 0;
+    }
 }
