@@ -2,7 +2,7 @@
 
 This is a collection of [MediaRecorder](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API) examples.
 
-You can take a look at the [examples online](http://mozdevs.github.io/mediarecorder).
+You can take a look at the [examples online](http://mozdevs.github.io/MediaRecorder-examples).
 
 ## Requirements
 
