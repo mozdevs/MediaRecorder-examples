@@ -13,7 +13,7 @@ You can take a look at the [examples online](http://mozdevs.github.io/MediaRecor
 
 ### Software requirements
 
-- **Firefox 45**. This is a Firefox technical demo. So it might not work on your browser, if it doesn't implement what we're demoing. At the time of writing (December 2015), you need to download [Firefox Nightly](https://nightly.mozilla.org).
+- **Firefox 45**. This is a Firefox technical demo. So it might not work on your browser, if it doesn't implement what we're demoing. At the time of writing (January 2016), you need to download either [Firefox Developer Edition](https://www.mozilla.org/firefox/developer/) or [Firefox Nightly](https://nightly.mozilla.org).
 - Support for `canvas.captureStream` (this lets us get a video stream out of a canvas tag)
 - Support for `MediaRecorder` (this lets us encode a video file natively in the browser, without using additional JS libraries)
 
@@ -21,4 +21,4 @@ Note: `MediaRecorder` is an upcoming API part of the [W3C MediaCapture](https://
 
 ## How to run the examples
 
-Just [download](https://github.com/mozdevs/mediarecorder/archive/gh-pages.zip) this repository and open `index.html` in your browser (see requirements above). It can't be easier!
+Just [download](https://github.com/mozdevs/MediaRecorder-examples/archive/gh-pages.zip) this repository and open `index.html` in your browser (see requirements above). It can't be easier!
