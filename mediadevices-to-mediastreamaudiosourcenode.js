@@ -14,8 +14,12 @@ window.onload = function () {
   })
   .then(function (stream) {
     var audioContext = new AudioContext();
-	var mediaStreamNode = audioContext.createMediaStreamSource(stream);
-	mediaStreamNode.connect(audioContext.destination);
+    var mediaStreamNode = audioContext.createMediaStreamSource(stream);
+    mediaStreamNode.connect(audioContext.destination);
+
+    // This is a temporary workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=934512
+    // where the stream is collected too soon by the Garbage Collector
+    window.doNotCollectThis = stream;
   });
   
 };
