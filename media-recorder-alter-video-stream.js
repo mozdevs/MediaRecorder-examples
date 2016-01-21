@@ -11,6 +11,11 @@
 // CanvasRenderingContext2D.getImageData -> to read the canvas pixels
 // CanvasRenderingContext2D.putImageData -> to write the canvas pixels
 // CanvasRenderingContext2D.captureStream -> get a video stream from a canvas
+// MediaRecorder (contructor) -> create a MediaRecorder with a stream
+// MediaRecorder.ondataavailable -> event to listen to when a record is ready
+// MediaRecorder.start -> start recording
+// MediaRecorder.stop -> stop recording (this will generate a blob of data)
+// URL.createObjectURL -> to create a URL from a blob, which we can use as src
 
 var reccordButton, stopButton, recorder, recordingLabel;
 
