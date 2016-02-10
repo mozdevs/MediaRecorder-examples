@@ -5,7 +5,7 @@
 //
 // The relevant functions used are:
 //
-// navigator.mediaDevices.getUserMedia -> to get a video stream fromt the webcam
+// navigator.mediaDevices.getUserMedia -> to get a video stream from the webcam
 // requestAnimationFrame -> to create a render loop (better than setTimeout)
 // CanvasRenderingContext2D.drawImage -> to draw the video stream
 // CanvasRenderingContext2D.getImageData -> to read the canvas pixels
