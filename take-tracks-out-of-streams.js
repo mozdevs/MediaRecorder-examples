@@ -1,12 +1,18 @@
-// This example uses MediaDevices.getUserMedia to get an audio and video stream,
-// and then display it in a video element
+// This example uses MediaDevices.getUserMedia to add a computer generated
+// 'beep' to a silent live video stream,
+// An audio stream is generated using Web Audio, the audio track is
+// taken out of that stream and added to the original stream
+// A video element will display both the live video and the 'beep'
+// generated with an oscillator within the Web Audio context
 //
 // The relevant functions in use are:
 //
 // navigator.mediaDevices.getUserMedia -> to get live video stream from webcam
 // AudioContext.createMediaStreamDestination -> to create a stream with audio out of a Web AudioContext
-// Stream.getAudioTracks() -> to get only the audio tracks from a stream
-// Stream.addTrack() -> to add a track to an existing stream
+// Stream.getAudioTracks -> to get only the audio tracks from a stream
+// Stream.addTrack -> to add a track to an existing stream
+// AudioContext.createOscillator -> create node that generates a beep
+// AudioContext.createMediaStreamDestination -> create node that exposes stream property
 // URL.createObjectURL -> to create a URL for the stream, which we can use as src for the video
 
 
