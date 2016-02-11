@@ -82,3 +82,7 @@ canvas, video {
         margin: 0;
     }
 }
+
+video {
+    background: #666;
+}
