@@ -3,7 +3,7 @@
 //
 // The relevant functions used are:
 //
-// navigator.mediaDevices.getUserMedia -> to get a video stream fromt the webcam
+// navigator.mediaDevices.getUserMedia -> to get a video stream from the webcam
 // requestAnimationFrame -> to create a render loop (better than setTimeout)
 // CanvasRenderingContext2D.drawImage -> to draw the video stream
 // CanvasRenderingContext2D.getImageData -> to read the canvas pixels
@@ -33,35 +33,37 @@ function initCanvas(video) {
   var width = video.videoWidth;
   var height = video.videoHeight;
 
-  // NOTE: In order to make the example more simple, we have opted to use a 2D
-  //       context. In a real application, you should use WebGL to render the
-  //       video and shaders to make filters, since it will be much faster.
-  //       You can see an example of this in Boo!
-  //       https://github.com/mozdevs/boo
+  // NOTE: In order to make the example simpler, we have opted to use a 2D
+  // context. In a real application, you should use WebGL shaders to 
+  // manipulate pixels, since it will be way faster.
+  // You can see an example of this in Boo! https://github.com/mozdevs/boo
   var canvas = document.getElementById('video');
   canvas.width = width;
   canvas.height = height;
 
   // use requestAnimationFrame to render the video as often as possible
-  var ctx = canvas.getContext('2d', { preserveDrawingBuffer: true });
+  var context = canvas.getContext('2d');
   var draw = function () {
-    // create a renderAnimationFrame loop
+    // schedule next call to this function
     requestAnimationFrame(draw);
-    // draw the video data into the canvas
-    ctx.drawImage(video, 0, 0, width, height);
-    // apply a custom filter to the image
-    applyFilter(ctx, width, height);
+
+    // draw video data into the canvas
+    context.drawImage(video, 0, 0, width, height);
+
+    // apply an image filter to the context
+    applyFilter(context, width, height);
   };
 
+  // Start the animation loop
   requestAnimationFrame(draw);
 }
 
-function applyFilter(ctx, width, height) {
+function applyFilter(context, width, height) {
   // read pixels
-  var imageData = ctx.getImageData(0, 0, width, height);
+  var imageData = context.getImageData(0, 0, width, height);
   var data = imageData.data; // data is an array of pixels in RGBA
 
-  // modify pixels
+  // modify pixels applying a simple effect
   for (var i = 0; i < data.length; i+=4) {
     data[i] = data[i] >= 128 ? 255 : 0; // red
     data[i + 1] = data[i + 1] >= 128 ? 255 : 0; // green
@@ -71,5 +73,5 @@ function applyFilter(ctx, width, height) {
   imageData.data = data;
 
   // render pixels back
-  ctx.putImageData(imageData, 0, 0);
+  context.putImageData(imageData, 0, 0);
 }
