@@ -17,7 +17,7 @@
 // MediaRecorder.stop -> stop recording (this will generate a blob of data)
 // URL.createObjectURL -> to create a URL from a blob, which we can use as src
 
-var reccordButton, stopButton, recorder, recordingLabel;
+var recordButton, stopButton, recorder, recordingLabel;
 
 window.onload = function () {
   recordButton = document.getElementById('record');
