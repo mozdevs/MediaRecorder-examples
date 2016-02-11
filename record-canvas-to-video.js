@@ -58,6 +58,7 @@ window.onload = function () {
     var blob = new Blob(videoData, { 'type': 'video/webm' });
     var videoURL = URL.createObjectURL(blob);
     video.src = videoURL;
+    video.play();
   }
 
 
@@ -85,7 +86,7 @@ window.onload = function () {
       data[offset++] = grey;
       data[offset++] = grey;
       data[offset++] = grey;
-      offset++;
+      offset++; // skip the alpha component
     }
 
     // And tell the context to draw the updated pixels in the canvas

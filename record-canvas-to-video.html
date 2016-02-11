@@ -1,0 +1,26 @@
+<!doctype html>
+<head>
+  <title>MediaRecorder examples - Record canvas to video</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  <script src="record-canvas-to-video.js"></script>
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">MediaRecorder examples</a></h1>
+    <p>Record canvas to video</p>
+    <p>This example renders white noise in a <code>canvas</code> for three seconds and records the output in a video clip, using <code>canvas.captureStream</code> and <code>MediaRecorder</code></p>
+  </header>
+  <main class="row">
+    <figure>
+      <canvas id="canvas" width="320" height="320"></canvas><br>
+      <caption>This is a <code>canvas</code> element</caption>
+    </figure>
+    <figure>
+      <video id="video" controls loop></video><br>
+      <caption>This is a <code>video</code> element</caption>
+    </figure>
+  </main>
+</body>
