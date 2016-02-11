@@ -79,7 +79,6 @@ function applyFilter(context, width, height) {
     data[i + 2] = data[i + 2] >= cutOff ? 255 : 0; // blue
     // note: i+3 is the alpha channel, we are skipping that one
   }
-  imageData.data = data;
 
   // render pixels back
   context.putImageData(imageData, 0, 0);
