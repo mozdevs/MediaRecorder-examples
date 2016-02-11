@@ -9,12 +9,21 @@
 // CanvasRenderingContext2D.getImageData -> to read the canvas pixels
 // CanvasRenderingContext2D.putImageData -> to write the canvas pixels
 
+var cutOff = 128;
+
 window.onload = function () {
   // get video stream from user's webcam
   navigator.mediaDevices.getUserMedia({
     video: true
   })
   .then(function (stream) {
+    // We'll use an input element to modify the cutOff variable
+    // (used as parameter for the image filter we apply later)
+    var cutOffInput = document.getElementById('cutoff');
+    cutOffInput.addEventListener('input', function(e) {
+      cutOff = Math.round(cutOffInput.value);
+    });
+
     // We need to create a video element and pipe the stream into it so we
     // can know when we have data in the stream, and its width/height.
     // Note that this video doesn't need to be attached to the DOM for this
@@ -65,9 +74,9 @@ function applyFilter(context, width, height) {
 
   // modify pixels applying a simple effect
   for (var i = 0; i < data.length; i+=4) {
-    data[i] = data[i] >= 128 ? 255 : 0; // red
-    data[i + 1] = data[i + 1] >= 128 ? 255 : 0; // green
-    data[i + 2] = data[i + 2] >= 128 ? 255 : 0; // blue
+    data[i] = data[i] >= cutOff ? 255 : 0; // red
+    data[i + 1] = data[i + 1] >= cutOff ? 255 : 0; // green
+    data[i + 2] = data[i + 2] >= cutOff ? 255 : 0; // blue
     // note: i+3 is the alpha channel, we are skipping that one
   }
   imageData.data = data;
