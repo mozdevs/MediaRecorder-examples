@@ -54,17 +54,16 @@ function initCanvas(video) {
   var width = video.videoWidth;
   var height = video.videoHeight;
 
-  // NOTE: In order to make the example more simple, we have opted to use a 2D
-  //       context. In a real application, you should use WebGL to render the
-  //       video and shaders to make filters, since it will be much faster.
-  //       You can see an example of this in Boo!
-  //       https://github.com/mozdevs/boo
+  // NOTE: In order to make the example simpler, we have opted to use a 2D
+  // context. In a real application, you should use WebGL to render the
+  // video and shaders to make filters, since it will be much faster.
+  // You can see an example of this in Boo! https://github.com/mozdevs/boo
   var canvas = document.getElementById('canvas');
   canvas.width = width;
   canvas.height = height;
 
   // use requestAnimationFrame to render the video as often as possible
-  var ctx = canvas.getContext('2d', { preserveDrawingBuffer: true });
+  var ctx = canvas.getContext('2d');
   var draw = function () {
     // create a renderAnimationFrame loop
     requestAnimationFrame(draw);
@@ -91,7 +90,6 @@ function applyFilter(ctx, width, height) {
     data[i + 2] = average >= 128 ? 255 : 0; // blue
     // note: i+3 is the alpha channel, we are skipping that one
   }
-  imageData.data = data;
 
   // render pixels back
   ctx.putImageData(imageData, 0, 0);
@@ -109,29 +107,25 @@ function initRecorderWithCanvas(canvas) {
 }
 
 function startRecording() {
-  // enable/disable buttons
   recordButton.disabled = true;
   stopButton.disabled = false;
   recordingLabel.style = 'display:inline';
 
-  // make the MediaRecorder to start recording
   recorder.start();
 }
 
 function stopRecording() {
-  // enable/disable buttons
   recordButton.disabled = false;
   stopButton.disabled = true;
   recordingLabel.style = 'display:none';
 
-  // make the MediaRecorder to stop recording
   // eventually this will trigger the dataavailable event
   recorder.stop();
 }
 
 function updateVideo(blob) {
   var video = document.getElementById('video');
-  // use the blob from the MediaRecorder as source for the video tag
+  // use the blob from MediaRecorder as source for the video tag
   video.src = URL.createObjectURL(blob);
   video.controls = true;
   video.play();
