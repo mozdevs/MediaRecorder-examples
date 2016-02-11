@@ -1,11 +1,11 @@
-// This example uses MediaRecorder to record an audio and video stream and use the
-// resulting blob as a source for an video element.
+// This example uses MediaRecorder to record from an audio and video stream, and uses the
+// resulting blob as a source for a video element.
 //
 // The relevant functions in use are:
 //
 // navigator.mediaDevices.getUserMedia -> to get the video & audio stream from user
-// MediaRecorder (contructor) -> create a MediaRecorder with a stream
-// MediaRecorder.ondataavailable -> event to listen to when a recording is ready
+// MediaRecorder (constructor) -> create MediaRecorder instance for a stream
+// MediaRecorder.ondataavailable -> event to listen to when the recording is ready
 // MediaRecorder.start -> start recording
 // MediaRecorder.stop -> stop recording (this will generate a blob of data)
 // URL.createObjectURL -> to create a URL from a blob, which we use as video src
@@ -38,7 +38,7 @@ window.onload = function () {
 function startRecording() {
   recorder = new MediaRecorder(liveStream);
 
-  recorder.addEventListener('dataavailable', onRecordReady);
+  recorder.addEventListener('dataavailable', onRecordingReady);
 
   recordButton.disabled = true;
   stopButton.disabled = false;
@@ -54,9 +54,9 @@ function stopRecording() {
   recorder.stop();
 }
 
-function onRecordReady(e) {
+function onRecordingReady(e) {
   var video = document.getElementById('recording');
-  // use the blob from MediaRecorder as source for the video tag
+  // e.data contains a blob representing the recording
   video.src = URL.createObjectURL(e.data);
   video.play();
 }
