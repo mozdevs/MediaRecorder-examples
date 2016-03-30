@@ -38,8 +38,8 @@ window.onload = function () {
 
   recorder.addEventListener('dataavailable', finishCapturing);
 
-  recorder.start();
   startCapturing();
+  recorder.start();
 
   setTimeout(function() {
     recorder.stop();
