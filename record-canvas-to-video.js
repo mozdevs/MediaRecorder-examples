@@ -37,9 +37,9 @@ window.onload = function () {
   var recorder = new MediaRecorder(stream);
 
   recorder.addEventListener('dataavailable', finishCapturing);
-  recorder.addEventListener('start', startCapturing);
 
   recorder.start();
+  startCapturing();
 
   setTimeout(function() {
     recorder.stop();
